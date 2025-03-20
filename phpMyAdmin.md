@@ -29,3 +29,22 @@ CREATE TABLE reportes (
 //°Almacena los reportes con descripcion, foto, categoria y estado
 //°Cada reporte está ligado a un usuario (usuario_id)
 //°El estado comienza en "Pendiente" por defecto
+
+
+//tabla de notificaciones 
+
+CREATE TABLE notificaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    mensaje TEXT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+caracterisiticas de lo que hace esta tabla:
+*id: Identificador único de la notificación.
+*usuario_id: A quién va dirigida la notificación (relacionado con la tabla usuarios).
+*mensaje: Contenido de la notificación.
+*fecha: Se registra automáticamente cuando se genera la notificación
+
+
